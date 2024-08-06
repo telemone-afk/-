@@ -1,0 +1,46 @@
+#include <iostream>
+#include <random>
+using namespace std;
+int random;
+int str = 0;
+class Rand {
+public:
+    int a = rand();
+    int rand2 = a * 100 % 3 + 1;
+    void randomic() const {
+        setlocale(LC_ALL, "Rus");
+            if (str > 0 && str < 4){
+                if (rand2 == 1) { cout << "камень" << endl;}
+                if (rand2 == 2) { cout << "ножницы" << endl;}
+                if (rand2 == 3) { cout << "бумага" << endl;}
+        }
+    }
+    void playing() const {
+        if (str == rand2 - 1 || str == rand2 + 2) {cout << "победа" << endl;}
+        if (str == rand2 + 1 || str == rand2 - 2) {cout << "поражение" << endl;}
+        if (str == rand2) {cout << "ничья" << endl;}
+    }
+};
+int main()
+{
+    setlocale(LC_ALL, "Rus");
+    cout << "введите целое число от 0 - 2\n"
+        << "1 = камень\n"
+        << "2 = ножницы\n"
+        << "3 = бумага\n";
+    while (true) {
+        setlocale(LC_ALL, "Rus");
+        Rand r;
+        cin >> str;
+        if (str > 0 && str < 4) {
+            string str1[] = { "камень" , "ножницы", "бумага" };
+            cout << str1[str - 1] << endl;
+        }
+        else { 
+            cout << "нет такого значения" << endl;
+            break;
+        }
+        r.randomic();
+        r.playing();
+    }
+}
