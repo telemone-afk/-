@@ -23,6 +23,7 @@ public:
 };
 int main()
 {
+cout << "helllo world";
     setlocale(LC_ALL, "Rus");
     cout << "введите целое число от 0 - 2\n"
         << "1 = камень\n"
